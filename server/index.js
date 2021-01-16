@@ -22,7 +22,7 @@ app.post("/create", (req, res) => {
   db.query(
     "INSERT INTO employees {name, age, position, wage} VALUES (?, ?, ?, ?)",
     [name, age, position, wage],
-    (err, result) => {
+    (err, res) => {
       if (err) console.log(err);
       else res.send("Values Inserted");
     }

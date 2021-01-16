@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <form className="information">
+      <div className="information">
         <label>Name:</label>
         <input type="text" onChange={(e) => setName(e.target.value)} />
 
@@ -36,7 +36,7 @@ const App = () => {
         <input type="number" onChange={(e) => setWage(e.target.value)} />
 
         <button onClick={addEmployee}>Add Employee</button>
-      </form>
+      </div>
     </div>
   );
 };
