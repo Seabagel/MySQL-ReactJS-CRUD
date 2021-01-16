@@ -1,3 +1,26 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.information input {
+  width: 40%;
+  height: 3em;
+  font-size: 1em;
+  padding-left: 16px;
+  margin: 0.5em;
+}
+
+.information button {
+  width: 40%;
+  height: 4em;
+  font-size: 1em;
+  margin-top: 1em;
 }
