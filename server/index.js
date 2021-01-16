@@ -9,8 +9,8 @@ app.use(express.json());
 const db = mysql.createConnection({
   user: "root",
   host: "local",
-  password: ``,
-  database: "employeeSystem",
+  password: `password`,
+  database: "employee_system",
 });
 
 app.post("/create", (req, res) => {
@@ -19,14 +19,25 @@ app.post("/create", (req, res) => {
   const position = req.body.position;
   const wage = req.body.wage;
 
+  console.log(req.body);
+
+  const displayInfo = () =>
+    console.log(`Added employee: ${name} + ${age} + ${position} + ${wage}`);
+
   db.query(
-    "INSERT INTO employees {name, age, position, wage} VALUES (?, ?, ?, ?)",
-    [name, age, position, wage],
-    (err, res) => {
-      if (err) console.log(err);
-      else res.send("Values Inserted");
-    }
+    `INSERT INTO employees (name, age, position, wage) VALUES (${name}, ${age}, ${position}, ${wage})`
   );
+  // db.query(
+  //   "INSERT INTO employees {name, age, position, wage} VALUES (?, ?, ?, ?)",
+  //   [name, age, position, wage],
+  //   (err, res) => {
+  //     if (err) console.log(err);
+  //     else {
+  //       res.send("Values Inserted");
+  //       console.log(displayInfo());
+  //     }
+  //   }
+  // );
 });
 
 app.listen(3001, () => {

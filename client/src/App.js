@@ -8,7 +8,8 @@ const App = () => {
   const [position, setPosition] = useState("");
   const [wage, setWage] = useState("");
 
-  const displayInfo = () => console.log(name + age + position + wage);
+  const displayInfo = () =>
+    console.log(`Added employee: ${name} + ${age} + ${position} + ${wage}`);
 
   const addEmployee = () => {
     Axios.post("http://localhost:3001/create", {
@@ -16,8 +17,7 @@ const App = () => {
       age: age,
       position: position,
       wage: wage,
-    }).then(() => console.log("success"));
-    displayInfo();
+    }).then(() => displayInfo());
   };
 
   return (
