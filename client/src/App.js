@@ -6,7 +6,9 @@ const App = () => {
   const [name, setName] = useState("");
 
   const addEmployee = () => {
-    Axios.post("http://localhost:3001/create", {name: name}).then(() => console.log(`Added employee: ${name}`));
+    Axios.post("http://localhost:3001/create", { name: name }).then(() =>
+      console.log(`Added employee: ${name}`)
+    );
   };
 
   return (
@@ -14,7 +16,6 @@ const App = () => {
       <div className="information">
         <label>Name:</label>
         <input type="text" onChange={(e) => setName(e.target.value)} />
-        {/* <button>Add Employee</button> */}
         <button onClick={addEmployee}>Add Employee</button>
       </div>
     </div>

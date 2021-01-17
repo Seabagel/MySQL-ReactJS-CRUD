@@ -1,16 +1,16 @@
 const express = require("express");
 const app = express();
 const mysql = require("mysql");
-const cors = require("cors")
+const cors = require("cors");
 
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "password",
-  database: "employeeDB",
+  database: "schemaDB",
   insecureAuth: true,
 });
 
@@ -21,15 +21,13 @@ db.connect((err) => {
 
 app.post("/create", (req, res) => {
   const name = req.body.name;
-  const sqlQuery = `INSERT INTO names (name) VALUES (?)`
+  const sqlQuery = `INSERT INTO employees (name) VALUES (?)`;
 
-  db.query(sqlQuery, [name],(err, res) => {
+  db.query(sqlQuery, [name], (err, res) => {
     if (err) throw err;
     console.log(res);
   });
-  
-})
-
+});
 
 app.listen(3001, () => {
   console.log(`server running at port 3001`);
