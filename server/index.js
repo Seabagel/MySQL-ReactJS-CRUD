@@ -21,7 +21,7 @@ db.connect((err) => {
 
 app.post("/create", (req, res) => {
   const name = req.body.name;
-  const sqlQuery = `INSERT INTO employees (name) VALUES (?)`;
+  const sqlQuery = `INSERT INTO employee (name) VALUES (?)`;
 
   db.query(sqlQuery, [name], (err, res) => {
     if (err) throw err;
